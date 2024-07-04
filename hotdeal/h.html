@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+</head>
+<body>
+    <from>
+       <h1>회원가입</h1>
+       <div> email : <input type="email" id="signUpEmail" /> </div>
+       <div> password : <input type="password" id="signUpPassword" /> </div>
+       <button type="submit" id="signUpbutton" >회원가입</button>
+       <button>로그인</button>
+
+    </from>
+
+   </from>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBijE9XHMTf40Aazett4Z9LgJSqvkzwCvw",
+        authDomain: "hotdeal-6c739.firebaseapp.com",
+        projectId: "hotdeal-6c739",
+        storageBucket: "hotdeal-6c739.appspot.com",
+        messagingSenderId: "75493776128",
+        appId: "1:75493776128:web:5a63ff368a88c2504db1e5",
+        measurementId: "G-BCL1EQ0EFC"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+      const auth = getAuth();
+
+      document.getElementById('signUpbutton').addEventListener('click', (event) => {
+          event.preventDefault()
+          const email = document.getElementById('signUpEmail').value
+          const password = document.getElementById('signUpPassword').value
+          createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                console.log(userCredential)
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+              })
+              .catch((error) => {
+                  console.log('error')
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  // ..
+              });
+
+      })
+
+      console.log('hello world')
+      console.log(app)
+    </script>
+</body>
+</html>
