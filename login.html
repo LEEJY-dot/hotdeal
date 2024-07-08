@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="header.css">
+
 </head>
 <body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="images/test.png" alt="logo">
+        <i class="fa-solid fa-fire-flame-simple"></i>
+        <h2>HotdealWork</h2>
+      </a>
+      <ul class="navbar_menu">
+           <li><a href="#">홈</a></li>
+           <li><a href="#">이벤트/특가</a></li>
+           <li><a href="#">질문/토론</a></li>
+           <li><a href="#">커뮤니티</a></li>
+           <li><a href="#">핫딜/장터</a></li>
+       </ul>
+        <button class="login-btn">로그인</button>
+    </nav>
+  </header>
+
   <div class="box">
     <form>
       <h2>로그인</h2>
@@ -25,9 +45,11 @@
         <a href="#">비밀번호 찾기</a>
       </div>
       <input type="submit" value="로그인">
-      <input type="submit" value="회원가입">
     </form>
   </div>
+
   <script src="login.js"></script>
+</script>
+
 </body>
 </html>
